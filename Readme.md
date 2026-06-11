@@ -39,7 +39,7 @@ apt install python3
 ## Использование скрипта
 
 ```sh
-wget -qO- link | bash
+wget -qO- https://raw.githubusercontent.com/ServerTechnologies/cascade-for-x-ray/refs/heads/main/cascad | bash
 ```
 
 Скрипт запросит ссылку для подключения с исходящего сервера:
