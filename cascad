@@ -268,7 +268,7 @@ main() {
     local vless_url="${1:-}"
 
     if [[ -z "$vless_url" ]]; then
-        read -rp "Вставьте vless-ссылку: " vless_url
+        read -rp "Вставьте vless-ссылку: " vless_url </dev/tty
     fi
 
     # Парсим ссылку → заполняем глобальные переменные
