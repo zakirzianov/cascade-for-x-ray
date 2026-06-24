@@ -123,14 +123,17 @@ patch_routing() {
 
 write_renew_script() {
     echo ">>> Создание скрипта обновления geo-файлов..."
-    cat > /usr/local/share/xray/renewgeofiles << 'EOF'
+    mkdir /usr/local/share/renewgeo/
+    touch /usr/local/share/renewgeo/renewgeofiles
+    cat > /usr/local/share/renewgeo/renewgeofiles << 'EOF'
 #!/bin/bash
-rm /usr/local/share/xray/*
+rm /usr/local/share/xray/geoip.dat
+rm /usr/local/share/xray/geosite.dat
 wget -P /usr/local/share/xray/ https://github.com/runetfreedom/russia-v2ray-rules-dat/releases/latest/download/geoip.dat
 wget -P /usr/local/share/xray/ https://github.com/runetfreedom/russia-v2ray-rules-dat/releases/latest/download/geosite.dat
 systemctl restart xray
 EOF
-    chmod +x /usr/local/share/xray/renewgeofiles
+    chmod +x /usr/local/share/renewgeo/renewgeofiles
 }
 
 restart_xray() {
